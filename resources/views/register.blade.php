@@ -27,13 +27,18 @@
         </label>
         <br>
         <br>
-        <label>Gender:
+        <label>Gender:</label>
             <br>
             <br>
+            <label>
             <input type="radio" value="Male" name="gender" required>Male
+        </label>
             <br>
+            <label>
             <input type="radio" value="Female" name="gender" required>Female
+        </label>
             <br>
+            <label>
             <input type="radio" name="gender">Other
         </label>
         <br>
