@@ -1,12 +1,8 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang</title>
-</head>
-<body>
+@extends("layout.master")
+@section("title")
+Selamat Datang
+@endsection
+@section("content")
     <h1>SELAMAT DATANG! {{ $fullName ?? "?" }}</h1>
     <h3>Ini adalah isi Biodata Kamu</h3>
     <ul>
@@ -19,5 +15,4 @@
     </li>    
         <li>Bio : {{ $bio ?? "-" }}</li>    
     </ul>    
-</body>
-</html>
+@endsection

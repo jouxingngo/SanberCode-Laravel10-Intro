@@ -18,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[DashboardController::class, "index"]);
 Route::get('/register', [AuthController::class, "registerPage"]);
 Route::post("/welcome", [AuthController::class, "registerPostWelcome"]);
+Route::get("/table", function () {
+    return view("table");
+});
+Route::get("/data-tables", function () {
+    return view("datatables");
+});
