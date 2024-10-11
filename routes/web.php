@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,18 @@ Route::get("/table", function () {
 Route::get("/data-tables", function () {
     return view("datatables");
 });
+
+// read category
+Route::get("/category", [CategoryController::class, "index"]);
+Route::get("/category/detail/{id}", [CategoryController::class, "show"]);
+
+// create category
+Route::get("/category/create", [CategoryController::class, "create"]);
+Route::post("/category/create", [CategoryController::class, "store"]);
+
+// Update
+Route::get("category/{id}/edit", [CategoryController::class, "edit"]);
+Route::put("/category/{id}/edit", [CategoryController::class, "update"]);
+
+// Delete
+Route::delete("/category/{id}/delete", [CategoryController::class, "delete"]);

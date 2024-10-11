@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->text("summary");
+            $table->string("image");
             $table->string("varchar");
             $table->integer("stock");
 
