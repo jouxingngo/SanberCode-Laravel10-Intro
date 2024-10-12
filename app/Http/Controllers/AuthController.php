@@ -21,5 +21,6 @@ class AuthController extends Controller
         
         return view("welcome", compact("fullName", "gender", "nationality", "l_spokens","bio"));
     }
+    
 
 }
