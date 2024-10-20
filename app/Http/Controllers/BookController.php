@@ -12,6 +12,14 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
+     public function __construct()
+     {
+        $this->middleware("auth")->except(["index", "show"]);
+     }
+     
+     
     public function index()
     {
         $books = Book::get();

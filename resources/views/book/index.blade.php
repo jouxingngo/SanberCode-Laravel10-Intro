@@ -4,7 +4,9 @@ Data Books
 @endsection
 @section("content")
 <table class="table table-bordered">
+    @auth
     <a href="/book/create" class="btn btn-primary mb-2">Add Book <i class="fas fa-plus"></i></a>
+    @endauth
     <thead>                  
         <tr>
         <th style="width: 10px">No</th>
@@ -29,10 +31,14 @@ Data Books
             <td>
                 <form action="/book/{{ $book->id }}" method="POST">
                     <a href="/book/{{ $book->id }}" class="btn btn-info btn-sm">Detail</a>
+                    @auth
+                        
                     <a href="/book/{{ $book->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                     @csrf
                     @method("DELETE")
                     <button onclick="return confirm('Delete Category {{ $book->title }}?');" type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    @endauth
+
                 </form>
             </td>
             </tr>

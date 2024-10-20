@@ -15,7 +15,13 @@
           <img src="{{ asset('img/cat.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/" class="d-block">Jouxing Ngo</a>
+          @auth
+          <a href="/" class="d-block">{{ Auth::user()->name }}</a>
+          @endauth
+          @guest
+          <a href="/" class="d-block">User</a>
+          @endguest
+
         </div>
       </div>
 
@@ -35,6 +41,8 @@
               </p>
             </a>
           </li>
+          @auth
+              
           <li class="nav-item">
             <a href="/category" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
@@ -43,6 +51,8 @@
               </p>
             </a>
           </li>
+          @endauth
+
           <li class="nav-item">
             <a href="/book" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -72,9 +82,35 @@
                   <p>Data Tables</p>
                 </a>
               </li>
+              
 
             </ul>
           </li>
+          @guest
+          <li class="nav-item">
+            <a href="/login" class="nav-link">
+              <i class="nav-icon fas fa-sign-in-alt"></i>
+              <p>
+                Login
+              </p>
+            </a>
+          </li>
+          @endguest
+          @auth
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  <i class="fas nav-icon fa-sign-out-alt"></i>
+                  LogOut
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+          </li> 
+          @endauth
+     
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

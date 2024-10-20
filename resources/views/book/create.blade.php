@@ -53,7 +53,7 @@ Add Book
         <input type="number" name="stock" class="form-control" >
         </div>
         <div class="d-flex justify-content-between">
-            <a href="/category" class="btn btn-danger "><i class="fas fa-arrow-left"></i> Back</a>
+            <a href="/book" class="btn btn-danger "><i class="fas fa-arrow-left"></i> Back</a>
             <button type="submit" class="btn btn-primary">Add <i class="fas fa-plus"></i></button>
         </div>
     </form>

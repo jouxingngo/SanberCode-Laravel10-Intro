@@ -4,6 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
+use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[DashboardController::class, "index"]);
+Route::get('/',[BookController::class, "index"]);
 Route::get('/register', [AuthController::class, "registerPage"]);
 Route::post("/welcome", [AuthController::class, "registerPostWelcome"]);
 Route::get("/table", function () {
@@ -26,6 +29,9 @@ Route::get("/table", function () {
 Route::get("/data-tables", function () {
     return view("datatables");
 });
+
+
+Route::middleware(['auth'])->group(function () {
 
 // read category
 Route::get("/category", [CategoryController::class, "index"]);
@@ -41,6 +47,14 @@ Route::put("/category/{id}/edit", [CategoryController::class, "update"]);
 
 // Delete
 Route::delete("/category/{id}/delete", [CategoryController::class, "delete"]);
+});
+
+
+
 
 // CRUD Book
 Route::resource("book", BookController::class);
+
+
+Auth::routes();
+
